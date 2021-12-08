@@ -118,35 +118,35 @@ for l_input in input_list:
             if len(i) == 7 and '8:' not in solved_list[8]:
                 solved_list[8] = ('8:' + i)
             # Find #3
-            if len(i) is 5 and '7:' in solved_list[7]:
+            if len(i) == 5 and '7:' in solved_list[7]:
                 # Match against #7, since all elements from #7 are in #3, and no other 5 element numbers
                 matchString = solved_list[7][2:]
                 if checkForMatch(i, matchString) is True and '3:' not in solved_list[3]:
                     solved_list[3] = ('3:' + i)
             # Find #2
-            if len(i) is 5 and '1:' in solved_list[1] and '4:' in solved_list[4] and '7:' in solved_list[7]:
+            if len(i) == 5 and '1:' in solved_list[1] and '4:' in solved_list[4] and '7:' in solved_list[7]:
                 # Using #1, #4, and #7, #2 is the only 5 element number that has 2 elements not in common with these combined
                 matchString = solved_list[1][2:] + solved_list[4][2:] + solved_list[7][2:]
                 if checkForMisMatch(i, matchString) == 2 and '2:' not in solved_list[2]:
                     solved_list[2] = ('2:' + i)
             # Find #5
-            if len(i) is 5 and i not in solved_list[2] and i not in solved_list[3]:
+            if len(i) == 5 and i not in solved_list[2] and i not in solved_list[3]:
                 # Only 5 element number remaining by process of elimination
                 solved_list[5] = ('5:' + i)
             # Find #9
-            if len(i) is 6 and '3:' in solved_list[3]:
+            if len(i) == 6 and '3:' in solved_list[3]:
                 # Match against #3, since all elements from #3 are in #9, and no other 6 element numbers
                 matchString = solved_list[3][2:]
                 if checkForMatch(i, matchString) is True and '9:' not in solved_list[9]:
                     solved_list[9] = ('9:' + i)
             # Find #6
-            if len(i) is 6 and '7:' in solved_list[7]:
+            if len(i) == 6 and '7:' in solved_list[7]:
                 # Match against #7, since all elements from #7 are in #0 and #9, but not #6
                 matchString = solved_list[7][2:]
                 if checkForMatch(i, matchString) is False and '6:' not in solved_list[6]:
                     solved_list[6] = ('6:' + i)
             # Find #0
-            if len(i) is 6 and i not in solved_list[6] and i not in solved_list[9]:
+            if len(i) == 6 and i not in solved_list[6] and i not in solved_list[9]:
                 # Only 6 element number remaining by process of elimination
                 solved_list[0] = ('0:' + i)
         # All keys have been found
