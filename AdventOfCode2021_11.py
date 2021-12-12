@@ -130,19 +130,16 @@ def findPuzzleAtStep(puzzle, coordinate_list, number):
 steps = 500
 answer = 0
 p_input = parseInput(p_input)
-printOut(p_input)
 for s in range(steps):
+    printOut(p_input)
     count_flashes = 0
     octopus_effected_list = initialOctopusFlash(p_input)
     if len(octopus_effected_list[0]) > 0:
         count_flashes = findPuzzleAtStep(p_input, octopus_effected_list[0], octopus_effected_list[1])
     answer = answer + count_flashes
     print answer
-    printOut(p_input)
-    count_flashed_state = 0
-    for p in p_input:
-        flashed_state = p.count('0')
-        count_flashed_state = count_flashed_state + flashed_state
-    if count_flashed_state == 100:
-        print s + 1
+    if count_flashes == 100:
+        printOut(p_input)
+        print 'DAY:' + str(s + 1)
         break
+
